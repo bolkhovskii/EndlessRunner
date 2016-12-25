@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void Update () {
+
         moveVector = Vector3.zero;
 
         if (controller.isGrounded) {

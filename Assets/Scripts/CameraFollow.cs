@@ -17,6 +17,8 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
         moveVector = lookAt.position + startOffset;
         //X
         moveVector.x = 0;
