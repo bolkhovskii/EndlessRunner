@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     private CharacterController controller;
-    private float speed=5.0f;
+    private float speed = 5.0f;
     private float gravity = 9.81f;
     private Vector3 moveVector;
     private float verticalVelocity = 0.0f;
 
-	void Start () {
+    void Start()
+    {
         controller = GetComponent<CharacterController>();
-	
-	}
-	
-	void Update () {
+
+    }
+
+    void Update()
+    {
 
         moveVector = Vector3.zero;
 
-        if (controller.isGrounded) {
+        if (controller.isGrounded)
+        {
             verticalVelocity = -0.5f;
-        } else {
+        }
+        else
+        {
             verticalVelocity -= gravity * Time.deltaTime;
         }
 
@@ -32,5 +38,5 @@ public class PlayerMovement : MonoBehaviour {
         moveVector.z = speed;
 
         controller.Move(moveVector * Time.deltaTime);
-	}
+    }
 }
