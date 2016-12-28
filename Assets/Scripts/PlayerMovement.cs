@@ -33,4 +33,9 @@ public class PlayerMovement : MonoBehaviour {
 
         controller.Move(moveVector * Time.deltaTime);
 	}
+
+    public void SetSpeed(float modifier)
+    {
+        speed = 5.0f + modifier;
+    }
 }
