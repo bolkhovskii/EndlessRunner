@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-
     private CharacterController controller;
     private float speed=5.0f;
     private float gravity = 9.81f;
     private Vector3 moveVector;
     private float verticalVelocity = 0.0f;
+
 
 	void Start () {
         controller = GetComponent<CharacterController>();

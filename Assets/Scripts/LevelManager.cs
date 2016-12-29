@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System;
 
 public class LevelManager : MonoBehaviour {
-
     public GameObject[] levelPrefabs;
     private Transform playerTransform;
     private float spawnZ = 0.0f;
     private float roadLength = 10f;
     private int lengthOnScreen = 10;
-    private float safeZone = 15f;
+    private float safeZone = 20f;
     private List<GameObject> activeTiles;
     private int lastPrefabIndex = 0;
-	// Use this for initialization
-	void Start () {
+
+
+    void Start () {
         activeTiles = new List<GameObject>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
 
         for(int i=0; i < lengthOnScreen; i++)
         {
@@ -27,14 +27,23 @@ public class LevelManager : MonoBehaviour {
         }
     }
 	
-	// Update is called once per frame
+
+
 	void Update () {
-	if(playerTransform.position.z - safeZone > (spawnZ - lengthOnScreen * roadLength))
+      CreateGame();
+	}
+
+    public void CreateGame()
+    {
+        if(playerTransform == null)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        } else if (playerTransform.position.z - safeZone > (spawnZ - lengthOnScreen * roadLength))
         {
             SpawnLevel();
             DeleteTile();
         }
-	}
+    }
 
     private void DeleteTile()
     {
