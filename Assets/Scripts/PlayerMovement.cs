@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour, IGameManager {
+    public ManagerStatus status { get; private set; }
+    [SerializeField]
     private CharacterController controller;
     private float speed=5.0f;
     private float gravity = 9.81f;
@@ -9,12 +11,21 @@ public class PlayerMovement : MonoBehaviour {
     private float verticalVelocity = 0.0f;
 
 
-	void Start () {
-        controller = GetComponent<CharacterController>();
+	public void Startup () {
+        Debug.Log("Player manager starting...");
+        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
+
+        status = ManagerStatus.Started;
+        //Run();
 	
 	}
-	
-	void Update () {
+
+    private void Update()
+    {
+        Run();
+    }
+
+	void Run () {
 
         moveVector = Vector3.zero;
 

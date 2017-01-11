@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour, IGameManager
 {
+    public ManagerStatus status { get; private set; }
+
     public GameObject[] levelPrefabs;
+
     private Transform playerTransform;
     private float spawnZ = 0.0f;
     private float roadLength = 10f;
@@ -14,8 +17,15 @@ public class LevelManager : MonoBehaviour
     private List<GameObject> activeTiles;
     private int lastPrefabIndex = 0;
 
+    public void Startup()
+    {
+        Debug.Log("Level manager starting...");
+        BeginGenerate();
+        status = ManagerStatus.Started;
+       // CreateGame();
+    }
 
-    void Start()
+    void BeginGenerate()
     {
         activeTiles = new List<GameObject>();
 
@@ -29,9 +39,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
-
-    void Update()
+    private void Update()
     {
         CreateGame();
     }
@@ -41,6 +49,8 @@ public class LevelManager : MonoBehaviour
         if (playerTransform == null)
         {
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+           // player = Instantiate(playerPrefab, Spawn.position, Spawn.rotation) as GameObject;
+           // playerTransform = player.transform;
         }
         else if (playerTransform.position.z - safeZone > (spawnZ - lengthOnScreen * roadLength))
         {
