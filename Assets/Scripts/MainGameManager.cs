@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(LevelManager))]
 public class MainGameManager : MonoBehaviour {
-    public static PlayerMovement Player { get; private set; }
+    public static PlayerManager Player { get; private set; }
     public static LevelManager Level { get; private set; }
 
     private List<IGameManager> _startSequence;
 
     void Awake()
     {
-        Player = GetComponent<PlayerMovement>();
+        Player = GetComponent<PlayerManager>();
         Level = GetComponent<LevelManager>();
 
 
