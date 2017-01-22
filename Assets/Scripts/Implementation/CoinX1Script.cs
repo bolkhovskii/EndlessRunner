@@ -15,6 +15,9 @@ public class CoinX1Script : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        
+        if (collider.gameObject.CompareTag("coin"))
+        {
+            Destroy(collider.gameObject);
+        }
     }
 }
