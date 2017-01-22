@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Core;
 
-public class Loader : MonoBehaviour {
-
+public class Loader : MonoBehaviour, ILoader
+{
     public GameObject gameManager;
-
-	// Use this for initialization
-	void Awake () {
-       
+    // Use this for initialization
+    public void Awake()
+    {
         if (GameManager.instance == null)
+        {
             Instantiate(gameManager);
-       
+        }
     }
 
-    void Start() {
+    public void Start()
+    {
         // проверка
         GameManager.instance.AdjustScore(-1000);
         //
     }
 
     // Update is called once per frame
-    void Update () {
-	
-	}
+    public void Update()
+    {
+
+    }
 }

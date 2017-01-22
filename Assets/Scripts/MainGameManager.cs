@@ -2,32 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Assets.Scripts.Core;
+using Assets.Scripts.Utils;
 
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(LevelManager))]
-public class MainGameManager : MonoBehaviour {
-    public static PlayerManager Player { get; private set; }
-    public static LevelManager Level { get; private set; }
+public class MainGameManager : MonoBehaviour
+{
+    public static IPlayerManager Player { get; private set; }
+    public static ILevelManager Level { get; private set; }
 
     private List<IGameManager> _startSequence;
 
-    void Awake()
+    public void Awake()
     {
-        Player = GetComponent<PlayerManager>();
-        Level = GetComponent<LevelManager>();
-
-
+        Player = GetComponent<IPlayerManager>();
+        Level = GetComponent<ILevelManager>();
+        
         _startSequence = new List<IGameManager>();
         _startSequence.Add(Level);
         _startSequence.Add(Player);
         StartCoroutine(StartupManagers());
     }
-
     // Use this for initialization
-
-private IEnumerator StartupManagers()
+    private IEnumerator StartupManagers()
     {
-        foreach (IGameManager manager in _startSequence)
+        foreach (var manager in _startSequence)
         {
             manager.Startup();
         }
@@ -42,9 +42,9 @@ private IEnumerator StartupManagers()
             int lastReady = numReady;
             numReady = 0;
 
-            foreach (IGameManager manager in _startSequence)
+            foreach (var manager in _startSequence)
             {
-                if(manager.status == ManagerStatus.Started)
+                if (manager.status == ManagerStatus.Started)
                 {
                     numReady++;
                 }

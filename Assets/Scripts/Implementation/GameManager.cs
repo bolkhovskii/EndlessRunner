@@ -8,16 +8,19 @@ public class GameManager : MonoBehaviour
     private int _currentScore;
     public static GameManager instance = null;
     public LevelManager levelScript;
-
-
-    void Awake()
+    
+    private void Awake()
     {
         if (instance == null)
-            instance = this;
-        else
-        if (instance != this)
         {
-            Destroy(gameObject);
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
         }
 
         DontDestroyOnLoad(gameObject);
@@ -37,9 +40,9 @@ public class GameManager : MonoBehaviour
         _currentScore += num;
     }
 
-    void OnGUI() {
-
-        GUI.Label(new Rect(10,10,100,100), "Score is " + _currentScore);
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 100), "Score is " + _currentScore);
     }
 }
 
