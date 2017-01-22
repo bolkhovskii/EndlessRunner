@@ -11,7 +11,12 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
     private float _gravity = 9.81f;
     private Vector3 _moveVector;
     private float _verticalVelocity = 0.0f;
+    private int _coinCounter;
 
+    public PlayerMovement()
+    {
+        _coinCounter = 1;
+    }
     public void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -62,6 +67,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
         if (collider.gameObject.CompareTag("coin"))
         {
             Destroy(collider.gameObject);
+            Debug.Log(_coinCounter++);
         }
     }
 
