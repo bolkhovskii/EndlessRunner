@@ -23,4 +23,9 @@ public class PlayerManager : MonoBehaviour, IPlayerManager
     {
 
     }
+
+    public void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("COLLIDING");
+    }
 }

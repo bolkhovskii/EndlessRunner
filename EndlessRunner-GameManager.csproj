@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Implementation\CoinX1Script.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Core\IGameManager.cs" />
     <Compile Include="Assets\Scripts\Core\ILevelManager.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\Core\IPlayerManager.cs" />
     <Compile Include="Assets\Scripts\Core\IPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Core\IScoreManager.cs" />
+    <Compile Include="Assets\Scripts\Implementation\CoinMechanics.cs" />
     <Compile Include="Assets\Scripts\Implementation\GameManager.cs" />
     <Compile Include="Assets\Scripts\Implementation\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Implementation\Loader.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Assets\Scripts\Implementation\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Implementation\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\MainGameManager.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utils\ManagerStatus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
