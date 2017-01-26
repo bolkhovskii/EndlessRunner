@@ -26,11 +26,13 @@ public class LevelManager : MonoBehaviour, ILevelManager
     public LevelManager()
     {
         _iterator = 10;
+       // _activeTiles = new List<GameObject>();
+
     }
     public void Startup()
     {
         Debug.Log("Level manager starting...");
-        BeginGenerate();
+        //BeginGenerate();
         status = ManagerStatus.Started;
 
         // CreateGame();
@@ -55,6 +57,7 @@ public class LevelManager : MonoBehaviour, ILevelManager
 
     public void Update()
     {
+        //BeginGenerate();
         CreateGame();
     }
 
@@ -93,12 +96,12 @@ public class LevelManager : MonoBehaviour, ILevelManager
         if (prefabIndex == -1)
         {
             bridges = Instantiate(LevelPrefabs[RandomPrefabIndex()]) as GameObject;
-            coins = (GameObject)Instantiate(Coin);
+            coins = Instantiate(Coin);
         }
         else
         {
             bridges = Instantiate(LevelPrefabs[prefabIndex]) as GameObject;
-            coins = (GameObject)Instantiate(Coin);
+            coins = Instantiate(Coin);
 
         }
         bridges.transform.SetParent(transform);
@@ -120,7 +123,7 @@ public class LevelManager : MonoBehaviour, ILevelManager
     {
         if (collider.gameObject.tag == "coin")
         {
-            Debug.Log("Coin triggered");
+          //  Debug.Log("Coin triggered");
         }
     }
     private int RandomPrefabIndex()
