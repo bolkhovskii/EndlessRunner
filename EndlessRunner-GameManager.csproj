@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.3f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -65,7 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Implementation\CoinX1Script.cs" />
+    <Compile Include="Assets\CubeCollision.cs" />
+    <Compile Include="Assets\DeadCoinScript.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Core\IGameManager.cs" />
     <Compile Include="Assets\Scripts\Core\ILevelManager.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="Assets\Scripts\Core\IPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Core\IScoreManager.cs" />
     <Compile Include="Assets\Scripts\Implementation\CoinMechanics.cs" />
+    <Compile Include="Assets\Scripts\Implementation\CoinX1Script.cs" />
     <Compile Include="Assets\Scripts\Implementation\GameManager.cs" />
     <Compile Include="Assets\Scripts\Implementation\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Implementation\Loader.cs" />
@@ -82,7 +82,9 @@
     <Compile Include="Assets\Scripts\Implementation\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\MainGameManager.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\StartApplication.cs" />
     <Compile Include="Assets\Scripts\Utils\ManagerStatus.cs" />
+    <Compile Include="Assets\StaffScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

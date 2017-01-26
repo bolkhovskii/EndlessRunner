@@ -104,6 +104,7 @@ public class LevelManager : MonoBehaviour, ILevelManager
             coins = Instantiate(Coin);
 
         }
+
         bridges.transform.SetParent(transform);
         bridges.transform.position = Vector3.forward * _spawnZ;
         coins.transform.SetParent(transform);

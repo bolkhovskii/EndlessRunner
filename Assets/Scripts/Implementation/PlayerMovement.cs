@@ -86,12 +86,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
             _livesCounter--;
             LivesCounter.text = ((int)_livesCounter).ToString();
             _isDead = false;
+
             if (_livesCounter == 0)
             {
                 _isDead = true;
                 Death();
-
-
             }
 
         }
@@ -101,7 +100,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
     {
         Debug.Log("Death");
         EditorApplication.isPaused = true;
-
     }
 
     public void SetSpeed(float modifier)
