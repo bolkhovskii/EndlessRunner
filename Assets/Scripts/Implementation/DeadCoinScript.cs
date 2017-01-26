@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StaffScript : MonoBehaviour
+public class DeadCoinScript : MonoBehaviour
 {
 
     // Use this for initialization
@@ -15,9 +15,9 @@ public class StaffScript : MonoBehaviour
     {
 
     }
-    
-    public void OnTriggerEnter(Collider collider)
+
+    void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("STAFF SCRIPT " + collider.gameObject.name);
+        Debug.Log(collider.gameObject.name);
     }
 }
