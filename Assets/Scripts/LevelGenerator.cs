@@ -17,18 +17,17 @@ public class LevelGenerator : MonoBehaviour {
     [SerializeField]
     private float distanceBetweenMin = 8f;
 
-    //[SerializeField]
-    //private GameObject[] thePlatforms;
+    [SerializeField]
+    private CoinGenerator theCoinGenerator;
+
     private int platformSelector;
 
     [SerializeField]
     private float[] platformWidths;
     [SerializeField]
     private ObjectPool[] theObjectPool;
-    // Use this for initialization
-    void Start () {
-        //platformWidth = platform.GetComponentInChildren<BoxCollider>().size.z + 10f;
 
+    void Start () {
         platformWidths = new float[theObjectPool.Length];
         for(int i = 0; i < theObjectPool.Length; i++)
         {
@@ -36,22 +35,19 @@ public class LevelGenerator : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	if(transform.position.z < generationPoint.position.z)
         {
             distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
             platformSelector = Random.Range(0, theObjectPool.Length);
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (platformWidths[platformSelector] / 2) + distanceBetween);
-
-           
-
-
-            //Instantiate(/*platform*/ theObjectPool[platformSelector],transform.position, transform.rotation);
             GameObject newPlatform = theObjectPool[platformSelector].GetPooledObject();
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
+            theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z));
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (platformWidths[platformSelector] / 2));
+
         }
-	}
+    }
 }

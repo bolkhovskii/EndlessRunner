@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CoinGenerator.cs" />
      <Compile Include="Assets\Scripts\Core\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Core\ILevelManager.cs" />
      <Compile Include="Assets\Scripts\Core\ILoader.cs" />

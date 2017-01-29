@@ -62,15 +62,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
         _controller.Move(_moveVector * Time.deltaTime);
     }
 
-    public void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("coin"))
-        {
-            Destroy(collider.gameObject);
-            Debug.Log(_coinCounter++);
-        }
-    }
-
     public void SetSpeed(float modifier)
     {
         _speed = 5.0f + modifier;

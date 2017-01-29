@@ -16,8 +16,9 @@ public class LevelDestroyer : MonoBehaviour {
 	void Update () {
 	if(transform.position.z < platformDestroyerPoint.transform.position.z)
         {
-            //Destroy(gameObject);
             gameObject.SetActive(false);
+            //Destroy(gameObject);
+            //gameObject.SetActive(false);
         }
 	}
 }

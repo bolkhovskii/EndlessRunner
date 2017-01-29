@@ -3,38 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ObjectPool : MonoBehaviour {
-    [SerializeField]
+
     public GameObject pooledObject;
-    [SerializeField]
-    private int poolAmount;
+
+    public int pooledAmount;
+
+    public Transform parent;
 
     List<GameObject> pooledObjects;
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
+        parent = GetComponent<Transform>();
         pooledObjects = new List<GameObject>();
-
-        for(int i = 0; i < poolAmount; i++)
+        for (int i = 0; i < pooledAmount; i++)
         {
             GameObject obj = (GameObject)Instantiate(pooledObject);
+            obj.transform.SetParent(parent);
             obj.SetActive(false);
             pooledObjects.Add(obj);
+
         }
-	}
+    }
 
     public GameObject GetPooledObject()
     {
-        for(int i = 0; i<pooledObjects.Count; i++)
+        for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if(!pooledObjects[i].activeInHierarchy)
+
+            if (pooledObjects[i].activeInHierarchy == false)
             {
                 return pooledObjects[i];
             }
+
         }
 
         GameObject obj = (GameObject)Instantiate(pooledObject);
+        obj.transform.SetParent(parent);
+
         obj.SetActive(false);
         pooledObjects.Add(obj);
         return obj;
+
     }
 }

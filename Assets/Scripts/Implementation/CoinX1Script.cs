@@ -3,21 +3,12 @@ using System.Collections;
 
 public class CoinX1Script : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.CompareTag("coin"))
+        if (other.gameObject.name == "Player")
         {
-            Destroy(collider.gameObject);
+            gameObject.SetActive(false);
+
         }
     }
 }
