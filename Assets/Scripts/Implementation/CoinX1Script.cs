@@ -4,6 +4,7 @@ using System.Collections;
 public class CoinX1Script : MonoBehaviour
 {
 
+<<<<<<< HEAD
     // Use this for initialization
     void Start()
     {
@@ -17,10 +18,14 @@ public class CoinX1Script : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider)
+=======
+    void OnTriggerEnter(Collider other)
+>>>>>>> Final
     {
-        if (collider.gameObject.CompareTag("coin"))
+        if (other.gameObject.name == "Player")
         {
-            Destroy(collider.gameObject);
+            gameObject.SetActive(false);
+
         }
     }
 }

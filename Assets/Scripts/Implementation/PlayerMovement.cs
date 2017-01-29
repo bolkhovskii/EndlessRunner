@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
         _controller.Move(_moveVector * Time.deltaTime);
     }
 
+<<<<<<< HEAD
     public void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("coin"))
@@ -102,6 +103,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
         EditorApplication.isPaused = true;
     }
 
+=======
+>>>>>>> Final
     public void SetSpeed(float modifier)
     {
         _speed = 5.0f + modifier;

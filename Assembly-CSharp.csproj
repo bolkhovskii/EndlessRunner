@@ -46,6 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+<<<<<<< HEAD
+=======
+     <Compile Include="Assets\Scripts\CoinGenerator.cs" />
+>>>>>>> Final
      <Compile Include="Assets\Scripts\Core\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Core\ILevelManager.cs" />
      <Compile Include="Assets\Scripts\Core\ILoader.cs" />
@@ -54,16 +58,26 @@
      <Compile Include="Assets\Scripts\Core\IScoreManager.cs" />
      <Compile Include="Assets\Scripts\Implementation\CoinMechanics.cs" />
      <Compile Include="Assets\Scripts\Implementation\CoinX1Script.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Scripts\Implementation\DeadCoinScript.cs" />
+=======
+>>>>>>> Final
      <Compile Include="Assets\Scripts\Implementation\GameManager.cs" />
      <Compile Include="Assets\Scripts\Implementation\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Implementation\Loader.cs" />
      <Compile Include="Assets\Scripts\Implementation\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Implementation\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Implementation\ScoreManager.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Scripts\MainGameManager.cs" />
      <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\StartApplication.cs" />
+=======
+     <Compile Include="Assets\Scripts\LevelDestroyer.cs" />
+     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
+     <Compile Include="Assets\Scripts\MainGameManager.cs" />
+     <Compile Include="Assets\Scripts\ObjectPool.cs" />
+>>>>>>> Final
      <Compile Include="Assets\Scripts\Utils\ManagerStatus.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
