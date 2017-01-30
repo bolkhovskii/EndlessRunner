@@ -35,15 +35,11 @@ public class ObjectPool : MonoBehaviour {
             {
                 return pooledObjects[i];
             }
-
         }
-
         GameObject obj = (GameObject)Instantiate(pooledObject);
         obj.transform.SetParent(parent);
-
         obj.SetActive(false);
         pooledObjects.Add(obj);
         return obj;
-
     }
 }

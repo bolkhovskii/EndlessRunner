@@ -3,28 +3,20 @@ using System.Collections;
 
 public class CoinX1Script : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource coin;
 
-<<<<<<< HEAD
-    // Use this for initialization
     void Start()
     {
-
+        coin = GameObject.Find("coinsoudn").GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnTriggerEnter(Collider collider)
-=======
     void OnTriggerEnter(Collider other)
->>>>>>> Final
     {
         if (other.gameObject.name == "Player")
         {
+            
             gameObject.SetActive(false);
+            coin.Play();
 
         }
     }

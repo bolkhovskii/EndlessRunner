@@ -22,4 +22,16 @@ public class StartApplication : MonoBehaviour
         SceneManager.LoadScene("mainMenu", LoadSceneMode.Single);
 
     }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+
+    }
+
+    public void MainMenuScene()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+
+    }
 }

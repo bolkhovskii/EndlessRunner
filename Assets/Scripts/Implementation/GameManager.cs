@@ -5,44 +5,63 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    private int _currentScore;
-    public static GameManager instance = null;
-    public LevelManager levelScript;
-    
-    private void Awake()
+    public Transform platformGenerator;
+    private Vector3 platformStartPoint;
+    public PlayerMovement thePlayer;
+    public GameObject animator;
+    private Vector3 playerStartPoint;
+    private LevelDestroyer[] theObjects;
+    private ScoreManager theScoreManager;
+    public GameObject tapToPlayButton;
+    public DeathMenu theDeathMenu;
+    public GameObject thePauseButton;
+
+    // Use this for initialization
+    void Start()
     {
-        if (instance == null)
+        platformStartPoint = platformGenerator.position;
+        playerStartPoint = thePlayer.transform.position;
+        theScoreManager = FindObjectOfType<ScoreManager>();
+        animator.SetActive(false);
+
+    }
+
+    public void RestartGame()
+    {
+
+      
+        thePlayer.gameObject.SetActive(false);
+
+        theDeathMenu.gameObject.SetActive(true);
+        thePauseButton.gameObject.SetActive(false);
+        tapToPlayButton.gameObject.SetActive(false);
+    }
+
+    public void Reset()
+    {
+        theDeathMenu.gameObject.SetActive(false);
+        thePauseButton.gameObject.SetActive(true);
+        theObjects = FindObjectsOfType<LevelDestroyer>();
+        for (int i = 0; i < theObjects.Length; i++)
         {
-            instance = this;
+            theObjects[i].gameObject.SetActive(false);
         }
-        else
-        {
-            if (instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
+        thePlayer.transform.position = playerStartPoint;
+        platformGenerator.position = platformStartPoint;
+        thePlayer.gameObject.SetActive(true);
 
-        DontDestroyOnLoad(gameObject);
-        levelScript = GetComponent<LevelManager>();
-        InitGame();
-        //проверка создания 
-        Debug.Log("Game init");
+        PlayGame();
     }
 
-    private void InitGame()
+    public void PlayGame()
     {
-        levelScript.CreateGame();
+        thePlayer._speed = 3;
+        thePlayer._jumpSpeed = 10;
+        theScoreManager.ScoreText.text = "0";
+        thePlayer._coinCounter = 0;
+        animator.SetActive(true);
+        tapToPlayButton.gameObject.SetActive(false);
+        thePauseButton.gameObject.SetActive(true);
     }
 
-    public void AdjustScore(int num)
-    {
-        _currentScore += num;
-    }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 100), "Score is " + _currentScore);
-    }
 }
-
