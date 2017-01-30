@@ -5,6 +5,8 @@ public class CoinX1Script : MonoBehaviour
 {
     [SerializeField]
     private AudioSource coin;
+    [SerializeField]
+    private GameObject particle;
 
     void Start()
     {
@@ -14,9 +16,10 @@ public class CoinX1Script : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            
-            gameObject.SetActive(false);
+           
             coin.Play();
+            gameObject.SetActive(false);
+
 
         }
     }

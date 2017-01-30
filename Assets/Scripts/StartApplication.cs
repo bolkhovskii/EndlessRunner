@@ -9,7 +9,7 @@ public class StartApplication : MonoBehaviour
 
     public void LoadOnClick()
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
 

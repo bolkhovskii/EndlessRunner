@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public void Run()
     {
         if (_speed != 0) { 
-        _moveVector.x = Input.GetAxisRaw("Horizontal") * _speed/2;
+        _moveVector.x = Input.GetAxisRaw("Horizontal") * 2;
 
         if (Input.GetButton("Jump"))
         {
